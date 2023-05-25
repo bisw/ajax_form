@@ -1,0 +1,7 @@
+services:
+  az_vehicle.vehicle:
+    class: Drupal\az_vehicle\VehicleService
+    arguments: [
+      '@http_client_factory',
+      '@config.factory'
+    ]

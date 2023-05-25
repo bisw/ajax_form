@@ -1,0 +1,57 @@
+<?php
+
+/**
+ * @file
+ * Contains custom functionality related to vehicle.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function az_vehicle_theme() {
+  return [
+    'set_your_vehicle' => [
+      'variables' => [
+        'title' => NULL,
+        'des' => NULL,
+        'form' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Get all settings for vehicle.
+ */
+function _az_vehicle_get_az_settings() {
+  $config = \Drupal::config('vehicle_config.settings');
+
+  return [
+    'api_base_uri' => !empty($config->get('api_base_uri')) ? $config->get('api_base_uri') : 'https://vpic.nhtsa.dot.gov/api/',
+    'api_all_manuf' => !empty($config->get('api_all_manuf')) ? $config->get('api_all_manuf') : 'vehicles/GetAllManufacturers',
+    'api_make' => !empty($config->get('api_make')) ? $config->get('api_make') : 'vehicles/GetMakeForManufacturer',
+    'api_model' => !empty($config->get('api_model')) ? $config->get('api_model') : 'vehicles/GetModelsForMakeId',
+    'api_engine' => !empty($config->get('api_engine')) ? $config->get('api_engine') : '',
+    'form_year_last' => !empty($config->get('form_year_last')) ? $config->get('form_year_last') : 2023,
+    'form_year_range' => !empty($config->get('form_year_range')) ? $config->get('form_year_range') : 28,
+    'form_year_title' => !empty($config->get('form_year_title')) ? $config->get('form_year_title') : '',
+    'form_year_des' => !empty($config->get('form_year_des')) ? $config->get('form_year_des') : '',
+  ];
+}
+
+/**
+ * Get year options.
+ */
+function _az_vehicle_get_year_options() {
+  $settings = _az_vehicle_get_az_settings();
+  $startYear = $settings['form_year_last'];
+  $options = [
+    $startYear => $startYear
+  ];
+  for ($i = $settings['form_year_range']; $i > 0; $i--) {
+    $startYear--;
+    $options[$startYear] = $startYear;
+  }
+
+  return $options;
+}

@@ -1,0 +1,8 @@
+.set-your-vehicle-form {
+  padding: 10px;
+}
+.set-your-vehicle-form .item {
+  margin-left: 10px;
+  width: 20%;
+  float: left;
+}

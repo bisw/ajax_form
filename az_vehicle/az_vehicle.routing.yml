@@ -1,0 +1,16 @@
+az_vehicle.settings:
+  path: '/admin/config/services/vehicle'
+  defaults:
+    _form: '\Drupal\az_vehicle\Form\VehicleConfig'
+    _title: 'Vehicle Configuration'
+  requirements:
+    _permission: 'Administer vehicle configurations'
+  options:
+    _admin_route: TRUE
+az_vehicle.setyourvehicle:
+  path: '/set-your-vehicle'
+  defaults:
+    _form: '\Drupal\az_vehicle\Form\SetYourVehicle'
+    _title: 'Set Your Vehicle'
+  requirements:
+    _permission: 'access content'

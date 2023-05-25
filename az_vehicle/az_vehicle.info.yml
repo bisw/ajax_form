@@ -1,0 +1,5 @@
+name: Auto Zone Vehicle
+type: module
+description: 'Vehicle related functionality for autozone.'
+package: Custom
+core_version_requirement: ^9 || ^10

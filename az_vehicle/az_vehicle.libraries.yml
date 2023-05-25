@@ -1,0 +1,4 @@
+az_vehicle_asset:
+  css:
+    theme:
+      css/az_vehicle_asset.css: {}

@@ -1,0 +1,4 @@
+az_vehicle.settings:
+  title: 'Vehicle Configuration'
+  route_name: az_vehicle.settings
+  base_route: az_vehicle.settings
